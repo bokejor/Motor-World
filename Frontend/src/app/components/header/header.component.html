@@ -1,0 +1,85 @@
+<header class="container-fluid bg-dark shadow py-2">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">  
+
+    <a class="navbar-brand text-center " routerLink="/">
+      
+      <img src="../assets/img/logo.jpg"  alt="Logo">
+
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon "></span>
+    </button>
+
+  
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav my-3 mx-auto">             
+        <li class="nav-item" *ngFor="let item of contentMenu">
+          <a class="nav-link text-white" routerLink="/{{item.path}}" routerLinkActive="active">
+            {{item.name}}            
+          </a>         
+        </li>   
+        <li class="nav-item dropdown">
+          <a 
+            class="nav-link dropdown-toggle text-white"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"         
+            >Mi Cuenta</a
+          >
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <a *ngFor="let value of contentSubmenu" class="dropdown-item " routerLink="/{{value.path}}">
+              {{value.name}}
+            </a>                
+          </div>
+        </li>               
+      </ul>      
+
+      <a href="#">
+        <button class="btn btn-success my-sm-0  mx-1" (click)="onClickPublicar()">
+          PUBLICA TU ANUNCIO
+        </button>
+      </a>
+
+      <a href="#" *ngIf="isAuth;else login" (click)="logout()">
+        <button class="btn btn-warning  my-sm-0 mx-1 text-black">
+          <i class="fas fa-sign-out-alt"></i>
+          LOGOUT
+        </button>      
+      </a>
+
+      <ng-template #login>
+        <a  routerLink="/login">
+          <button class="btn btn-success  my-sm-0 mx-1 text-white">
+            <i class="fas fa-sign-in-alt"></i>
+            LOGIN
+          </button>         
+        </a>            
+      </ng-template>
+
+      <a routerLink="/register">
+        <button *ngIf="!isAuth" class="btn btn-success  my-sm-0 mx-1 text-white">
+          <i class="fas fa-user-plus"></i>
+         REGISTRO        
+       </button>     
+      </a>   
+
+      
+    </div>
+  </nav>
+
+</header>
+
+
+
