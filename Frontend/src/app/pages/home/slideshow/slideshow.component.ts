@@ -10,6 +10,8 @@ declare var $:any;
 })
 export class SlideshowComponent implements OnInit {
 
+	images: string[];
+
   //VARIABLES PÚBLICAS O GLOBALES
 
 	public slideJson:any;
@@ -19,37 +21,18 @@ export class SlideshowComponent implements OnInit {
 
 	constructor() { 
 
-		this.clickButtonPublicar = new EventEmitter()		
-
-		// this.slideshowService.getSlideshow()
-		// .subscribe( respuesta => {
-			
-		// 	// console.log("respuesta", respuesta)
-
-		// 	this.slideJson = respuesta;
-
-		// })
+		this.clickButtonPublicar = new EventEmitter()	
+		this.images = [
+			'../../../../assets/img/coches.png'			
+		]			
 	}
 
-	ngOnInit(): void {	
-		
-		/*=============================================
-			JD SLIDER
-		=============================================*/
-		
-		// $('.slideshow').jdSlider({
+	ngOnInit(): void {			
 
-		// 	wrap:'.slide-inner',
-		// 	isAuto: true,
-		// 	isLoop: true,
-		// 	interval: 7000,
-		// 	isCursor:true,
-		// 	slideShow: 2			
-		// });
+	}
 
-		$('.slideshow .btn').on('click', () => this.clickButtonPublicar.emit())
-		
-
+	onClickPublicar(){
+		this.clickButtonPublicar.emit()
 	}
 	
 

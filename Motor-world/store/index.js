@@ -310,7 +310,7 @@ export const actions = {
   },
   async cleanPost (context){
       context.commit('readPost', "");
-       this.$router.push("/Ad");       
+      this.$router.push("/Ad");       
   },
   async getArticlePublish(context){
 
