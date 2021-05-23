@@ -1,0 +1,14 @@
+<ngb-carousel  *ngIf="banners.image" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let image of banners.image; let i = index" >
+    <div class="slide-area" >
+      <img [src]="banners.image[i]" [alt]="banners.title">
+    </div>
+    <div class="carousel-caption slide-text">      
+        <h1>{{banners.title}}</h1>
+        <p>{{banners.subtitle}}</p>
+        <button *ngIf="banners.button" class="btn btn-success" (click)="onClickPublicar()">
+          Publicar
+        </button>     
+    </div>   
+  </ng-template>
+</ngb-carousel>

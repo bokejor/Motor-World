@@ -1,0 +1,43 @@
+<section class="container-fluid">
+    <h2>MOTOS DE SEGUNDA MANO</h2>
+    <div class="container ">
+        <div class="row">
+
+            <div class="box col-xs-6 col-lg-4" *ngFor="let post of posts">
+                <button (click)="updateFavorite()">
+              <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </button>
+                <div>
+                    <div class="p-3">
+                        <ngb-carousel>
+                            <ng-template ngbSlide *ngFor="let item of post.image.split(','); let i = index">
+
+                                <img class="d-block img-fluid" width="1024" height="480" [src]="'http://localhost:3030/img/' + i + '/' +  post.id">
+
+                            </ng-template>
+                        </ngb-carousel>
+                    </div>
+                    <span class="secondHand">Segunda mano</span>
+                    <span class="priceBox">{{ post.price }} €</span>
+                </div>
+                <hr />
+                <div class="articleBox">
+                    <p class="labelBrand">
+                        MARCA:
+                        <span>
+                  <b>{{ post.brand }}</b></span
+                >
+              </p>
+              <p class="labelKm">
+                KM: <b>{{ post.km }}</b>
+              </p>
+              <p>
+                <b>{{ post.desc }}</b>
+              </p>
+        
+            </div>
+          </div>
+
+        </div>
+    </div>
+</section>
